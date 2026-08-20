@@ -95,7 +95,7 @@ export default async function HomePage() {
           <div className="section-head inverse">
             <p className="section-kicker">THE AEQUUM LAYER</p>
             <h2>Structure without friction.</h2>
-            <p>One operating layer across the recurring lifecycle of service work — from opportunity and assembly to execution and settlement.</p>
+            <p>One operating layer across the recurring lifecycle of service work, from opportunity and assembly to execution and settlement.</p>
           </div>
           <div className="operating-line" aria-label="Aequum operating model">
             <div><b>CLIENTS</b><small>Context & demand</small></div>
