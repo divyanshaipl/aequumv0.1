@@ -16,21 +16,21 @@ export const SiteSettings: GlobalConfig = {
     {
       name: 'eyebrow',
       type: 'text',
-      maxLength: 100,
-      defaultValue: 'AI-ASSISTED OPERATING SYSTEM FOR SERVICE BUSINESSES',
+      maxLength: 120,
+      defaultValue: 'OPERATING INFRASTRUCTURE FOR THE NEXT SERVICE ECONOMY',
     },
     {
       name: 'headline',
       type: 'text',
       maxLength: 180,
-      defaultValue: 'Turn a client opportunity into a delivered, paid project in one connected workflow.',
+      defaultValue: 'Build the right team. Run the engagement. Get paid. Make the next one smarter.',
     },
     {
       name: 'subheadline',
       type: 'textarea',
-      maxLength: 420,
+      maxLength: 460,
       defaultValue:
-        'Aequum is building the operating platform for agencies, consultancies and specialist service firms. It connects team assembly, scope, contracts, delivery, approvals, invoicing and payments around the client engagement.',
+        'Aequum is building an AI-assisted engagement operating system for agencies, consultancies and specialist service firms. One place to turn a client opportunity into a staffed, scoped, delivered and commercially connected engagement.',
     },
     {
       name: 'primaryCTA',

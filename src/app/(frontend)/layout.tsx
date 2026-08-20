@@ -20,18 +20,18 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: {
-    default: 'Aequum | Operating System for Modern Service Businesses',
+    default: 'Aequum | Operating Infrastructure for the Next Service Economy',
     template: '%s | Aequum',
   },
   description:
-    'Aequum is building an AI-assisted operating platform for agencies, consultancies and specialist service firms, connecting team assembly, scope, delivery, approvals and commercial operations around the client engagement.',
+    'Aequum is building an AI-assisted engagement operating system for agencies, consultancies and specialist service firms, connecting people, scope, delivery, approvals and commercial context around each client engagement.',
   applicationName: 'Aequum',
   alternates: { canonical: '/' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Aequum | From client opportunity to delivered, paid project',
+    title: 'Aequum | Build the team. Run the engagement. Get paid. Learn.',
     description:
-      'One connected engagement workflow across team assembly, scope, contracts, delivery, approvals, invoicing and payments.',
+      'Operating infrastructure for service businesses that assemble people, partners and AI around client outcomes.',
     type: 'website',
     siteName: 'Aequum',
   },
@@ -43,7 +43,6 @@ export const viewport: Viewport = {
 }
 
 export default async function FrontendLayout({ children }: { children: ReactNode }) {
-  // Reading headers opts the route into dynamic rendering so Next can apply the request CSP nonce.
   await headers()
 
   return (
