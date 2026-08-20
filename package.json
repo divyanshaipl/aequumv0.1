@@ -1,0 +1,39 @@
+{
+  "name": "aequum-hub71-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "build": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap && next build",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@payloadcms/db-vercel-postgres": "3.72.0",
+    "@payloadcms/next": "3.72.0",
+    "@payloadcms/storage-vercel-blob": "3.72.0",
+    "@payloadcms/ui": "3.72.0",
+    "cross-env": "7.0.3",
+    "graphql": "16.8.1",
+    "next": "15.4.10",
+    "payload": "3.72.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "sharp": "0.34.2",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "typescript": "5.7.3"
+  },
+  "engines": {
+    "node": ">=20.18.0 <25"
+  },
+  "packageManager": "pnpm@10.15.1"
+}
