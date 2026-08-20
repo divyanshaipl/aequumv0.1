@@ -590,23 +590,52 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="abu-dhabi-section">
-        <div className="container abu-dhabi-grid">
+      <section className="global-expansion-section">
+        <div className="container global-expansion-grid">
           <div>
             <p className="section-kicker">GLOBAL BY DESIGN</p>
-            <h2>Exploring Abu Dhabi as a launch base for MENA and global expansion.</h2>
+            <h2>Built in India. Designed for global service businesses. Expanding next into the UAE.</h2>
           </div>
-          <div className="abu-dhabi-copy">
+
+          <div className="global-expansion-copy">
             <p>
-              Aequum is being designed for cross-border service businesses, distributed capability and AI-enabled
-              delivery. Abu Dhabi offers a compelling environment to validate that model with regional operators,
-              build partnerships and develop a MENA-to-global growth path.
+              Aequum is being built for service businesses that already operate across clients, specialists,
+              partners and markets. India gives us a strong operating base inside a deep digital and
+              professional-services ecosystem. The UAE is a natural next market for validating Aequum with
+              international businesses, cross-border service operators and globally distributed teams.
             </p>
-            <div className="abu-dhabi-points">
-              <span>Cross-border service operations</span>
-              <span>Enterprise and professional-services relationships</span>
-              <span>AI and innovation ecosystem</span>
+
+            <div className="expansion-path" aria-label="Aequum expansion path">
+              <article>
+                <span>01</span>
+                <b>INDIA</b>
+                <strong>Build and validate</strong>
+                <p>Develop the product close to a large services, technology and specialist-talent ecosystem.</p>
+              </article>
+
+              <i aria-hidden="true">→</i>
+
+              <article>
+                <span>02</span>
+                <b>UAE</b>
+                <strong>First international expansion market</strong>
+                <p>Build design-partner, enterprise and ecosystem relationships across a highly international business market.</p>
+              </article>
+
+              <i aria-hidden="true">→</i>
+
+              <article>
+                <span>03</span>
+                <b>GLOBAL</b>
+                <strong>Scale the engagement layer</strong>
+                <p>Expand wherever service businesses need to coordinate clients, talent, partners, AI and commercial work across borders.</p>
+              </article>
             </div>
+
+            <p className="expansion-note">
+              The product vision is global. Geographic expansion will follow customer validation, partnerships
+              and market readiness rather than being tied to a single city or programme.
+            </p>
           </div>
         </div>
       </section>
