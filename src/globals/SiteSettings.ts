@@ -16,27 +16,27 @@ export const SiteSettings: GlobalConfig = {
     {
       name: 'eyebrow',
       type: 'text',
-      maxLength: 80,
-      defaultValue: 'OPERATING INFRASTRUCTURE FOR SERVICE BUSINESSES',
+      maxLength: 100,
+      defaultValue: 'AI-ASSISTED OPERATING SYSTEM FOR SERVICE BUSINESSES',
     },
     {
       name: 'headline',
       type: 'text',
-      maxLength: 120,
-      defaultValue: 'Run your service business as one connected system.',
+      maxLength: 180,
+      defaultValue: 'Turn a client opportunity into a delivered, paid project in one connected workflow.',
     },
     {
       name: 'subheadline',
       type: 'textarea',
-      maxLength: 320,
+      maxLength: 420,
       defaultValue:
-        'Aequum is building the operating layer that brings clients, talent, work, contracts, workflows and commercial operations into alignment.',
+        'Aequum is building the operating platform for agencies, consultancies and specialist service firms. It connects team assembly, scope, contracts, delivery, approvals, invoicing and payments around the client engagement.',
     },
     {
       name: 'primaryCTA',
       type: 'text',
       maxLength: 40,
-      defaultValue: 'Join Early Access',
+      defaultValue: 'Request Early Access',
     },
   ],
 }

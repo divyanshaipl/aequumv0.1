@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
 
   // Honeypot: return the same outward success response so bots do not learn the trap.
   if (lead.website) {
-    return secureJSON({ message: "Thanks — we've received your request." })
+    return secureJSON({ message: "Thanks, we've received your request." })
   }
 
   const elapsed = Date.now() - lead.startedAt

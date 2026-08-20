@@ -20,18 +20,18 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: {
-    default: 'Aequum — Operating Infrastructure for Service Businesses',
+    default: 'Aequum | Operating System for Modern Service Businesses',
     template: '%s | Aequum',
   },
   description:
-    'Aequum is building the operating layer that connects clients, talent, work, contracts, workflows and commercial operations for modern service businesses.',
+    'Aequum is building an AI-assisted operating platform for agencies, consultancies and specialist service firms, connecting team assembly, scope, delivery, approvals and commercial operations around the client engagement.',
   applicationName: 'Aequum',
   alternates: { canonical: '/' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Aequum — Run your service business as one connected system',
+    title: 'Aequum | From client opportunity to delivered, paid project',
     description:
-      'Operating infrastructure for modern agencies, consultancies, studios and distributed service teams.',
+      'One connected engagement workflow across team assembly, scope, contracts, delivery, approvals, invoicing and payments.',
     type: 'website',
     siteName: 'Aequum',
   },
