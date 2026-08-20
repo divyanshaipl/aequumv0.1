@@ -12,20 +12,32 @@ const fallback = {
   eyebrow: 'OPERATING INFRASTRUCTURE FOR THE NEXT SERVICE ECONOMY',
   headline: 'Build the right team. Run the engagement. Get paid. Make the next one smarter.',
   subheadline:
-    'Aequum is building an AI-assisted engagement operating system for agencies, consultancies and specialist service firms. One place to turn a client opportunity into a staffed, scoped, delivered and commercially connected engagement.',
+    'Aequum is building one operating system for agencies, consultancies and specialist service firms to move client work from opportunity to team, scope, delivery, approvals and billing without rebuilding context across tools.',
   primaryCTA: 'Request Early Access',
 }
 
-const legacyV02 = {
-  eyebrow: 'AI-ASSISTED OPERATING SYSTEM FOR SERVICE BUSINESSES',
-  headline: 'Turn a client opportunity into a delivered, paid project in one connected workflow.',
-  subheadline:
+const legacyDefaults = {
+  eyebrow: [
+    'AI-ASSISTED OPERATING SYSTEM FOR SERVICE BUSINESSES',
+    'OPERATING INFRASTRUCTURE FOR THE NEXT SERVICE ECONOMY',
+  ],
+  headline: [
+    'Turn a client opportunity into a delivered, paid project in one connected workflow.',
+    'Build the right team. Run the engagement. Get paid. Make the next one smarter.',
+  ],
+  subheadline: [
     'Aequum is building the operating platform for agencies, consultancies and specialist service firms. It connects team assembly, scope, contracts, delivery, approvals, invoicing and payments around the client engagement.',
-  primaryCTA: 'Request Early Access',
+    'Aequum is building an AI-assisted engagement operating system for agencies, consultancies and specialist service firms. One place to turn a client opportunity into a staffed, scoped, delivered and commercially connected engagement.',
+  ],
+  primaryCTA: ['Request Early Access'],
 }
 
-function upgradedCopy(value: string | null | undefined, legacy: string, next: string) {
-  if (!value || value === legacy) return next
+function upgradedCopy(
+  value: string | null | undefined,
+  legacyValues: string[],
+  nextValue: string,
+) {
+  if (!value || legacyValues.includes(value)) return nextValue
   return value
 }
 
@@ -33,11 +45,12 @@ async function getCopy() {
   try {
     const payload = await getPayload({ config: configPromise })
     const settings = await payload.findGlobal({ slug: 'site-settings', overrideAccess: true })
+
     return {
-      eyebrow: upgradedCopy(settings.eyebrow, legacyV02.eyebrow, fallback.eyebrow),
-      headline: upgradedCopy(settings.headline, legacyV02.headline, fallback.headline),
-      subheadline: upgradedCopy(settings.subheadline, legacyV02.subheadline, fallback.subheadline),
-      primaryCTA: upgradedCopy(settings.primaryCTA, legacyV02.primaryCTA, fallback.primaryCTA),
+      eyebrow: upgradedCopy(settings.eyebrow, legacyDefaults.eyebrow, fallback.eyebrow),
+      headline: upgradedCopy(settings.headline, legacyDefaults.headline, fallback.headline),
+      subheadline: upgradedCopy(settings.subheadline, legacyDefaults.subheadline, fallback.subheadline),
+      primaryCTA: upgradedCopy(settings.primaryCTA, legacyDefaults.primaryCTA, fallback.primaryCTA),
     }
   } catch {
     return fallback
@@ -67,19 +80,28 @@ const outcomes = [
   ['Create a cleaner path to cash', 'Link approved work with invoicing and settlement readiness from the operating workflow.'],
 ]
 
-const pointTools = [
-  ['CRM', 'Opportunity'],
-  ['Talent', 'People'],
-  ['PM', 'Tasks'],
-  ['Chat', 'Conversations'],
-  ['Contracts', 'Agreements'],
-  ['Accounting', 'Invoices'],
+const psaStrengths = [
+  'Internal resources',
+  'Projects and delivery',
+  'Time and utilisation',
+  'Profitability',
+  'Billing',
+  'Firm operations',
+]
+
+const aequumNetwork = [
+  'Client requirement',
+  'Internal teams',
+  'Independent specialists',
+  'Partner firms',
+  'AI capability',
+  'Commercial context',
 ]
 
 const whyNow = [
   ['Fluid workforces', 'Employees, specialists and partners increasingly work together around client outcomes.'],
   ['Operational AI', 'AI can participate in workflows only when it has structured context and clear approval boundaries.'],
-  ['Fragmented infrastructure', 'Current tools organise functions while a client engagement crosses all of them.'],
+  ['Fragmented infrastructure', 'Current systems still organise functions while a client engagement crosses all of them.'],
 ]
 
 export default async function HomePage() {
@@ -92,7 +114,7 @@ export default async function HomePage() {
         <nav aria-label="Primary navigation">
           <a href="#problem">Problem</a>
           <a href="#product">Product</a>
-          <a href="#outcomes">Outcomes</a>
+          <a href="#difference">Difference</a>
           <a href="#vision">Vision</a>
         </nav>
         <a className="button small" href="#early-access">{copy.primaryCTA}</a>
@@ -104,11 +126,18 @@ export default async function HomePage() {
             <p className="eyebrow"><span />{copy.eyebrow}</p>
             <h1>{copy.headline}</h1>
             <p className="hero-sub">{copy.subheadline}</p>
+
+            <p className="buyer-line">
+              Built first for founders, operations leaders and delivery teams at multi-client service businesses
+              coordinating a mix of internal and external talent.
+            </p>
+
             <div className="hero-actions">
               <a className="button primary" href="#early-access">{copy.primaryCTA}</a>
               <a className="text-link" href="#product">See how it works <span>↘</span></a>
             </div>
-            <p className="build-note"><i /> Product development and design-partner validation underway</p>
+
+            <p className="build-note"><i /> MVP in development and design-partner validation underway</p>
           </div>
 
           <aside className="hero-thesis compact-thesis">
@@ -129,7 +158,10 @@ export default async function HomePage() {
         <div className="section-head">
           <p className="section-kicker">THE OPERATING GAP</p>
           <h2>Winning the work should be hard. Operating it should not be.</h2>
-          <p>A client engagement crosses staffing, scope, delivery, approvals and finance. The software stack is fragmented by function, so teams manually carry the operating context between tools.</p>
+          <p>
+            A client engagement crosses staffing, scope, delivery, approvals and finance. The software stack is
+            fragmented by function, so teams manually carry operating context between systems.
+          </p>
         </div>
 
         <div className="problem-grid compact-problem-grid">
@@ -153,7 +185,10 @@ export default async function HomePage() {
           <div className="section-head inverse">
             <p className="section-kicker">HOW AEQUUM WORKS</p>
             <h2>One engagement. One operating context.</h2>
-            <p>Aequum is designed around the client engagement and carries its people, work and commercial context from the first requirement through settlement and learning.</p>
+            <p>
+              Aequum is designed around the client engagement and carries its people, work and commercial
+              context from the first requirement through settlement and learning.
+            </p>
           </div>
 
           <div className="compact-workflow" aria-label="Aequum engagement lifecycle">
@@ -172,7 +207,8 @@ export default async function HomePage() {
               <div><span>AEQUUM ENGAGEMENT</span><strong>What stays connected</strong></div>
             </div>
             <div className="engagement-context-items">
-              <span>Client requirement</span><span>People</span><span>Scope</span><span>Work</span><span>Approvals</span><span>Commercials</span><span>Invoice readiness</span><span>Knowledge</span>
+              <span>Client requirement</span><span>People</span><span>Scope</span><span>Work</span>
+              <span>Approvals</span><span>Commercials</span><span>Invoice readiness</span><span>Knowledge</span>
             </div>
           </div>
         </div>
@@ -196,38 +232,60 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="compact-difference-section">
+      <section className="final-difference-section" id="difference">
         <div className="container">
           <div className="section-head">
             <p className="section-kicker">WHY AEQUUM</p>
-            <h2>Point tools organise functions. Aequum organises the engagement.</h2>
+            <h2>Service operations software runs the firm. Aequum is being built around the network delivering the outcome.</h2>
+            <p>
+              Professional Services Automation systems are strong at internal resources, projects, utilisation,
+              profitability and billing. Aequum starts from a different object: the client engagement and the
+              cross-organisational capability assembled around it.
+            </p>
           </div>
 
-          <div className="compact-difference-grid">
-            <div className="compact-point-tools">
-              <div className="difference-label">TODAY</div>
-              <h3>Each tool owns one slice.</h3>
-              <div className="compact-point-tool-grid">
-                {pointTools.map(([tool, owns]) => (
-                  <div key={tool}><b>{tool}</b><span>{owns}</span></div>
-                ))}
+          <div className="final-difference-grid">
+            <article className="psa-panel">
+              <span className="difference-label">TRADITIONAL SERVICE OPERATIONS / PSA</span>
+              <h3>Optimise the service firm.</h3>
+              <p>Manage the resources and economics primarily inside one operating organisation.</p>
+              <div className="final-chip-grid">
+                {psaStrengths.map((item) => <span key={item}>{item}</span>)}
               </div>
-            </div>
+            </article>
 
-            <div className="compact-engagement-model">
-              <div className="difference-label">WITH AEQUUM</div>
-              <h3>One engagement carries the context.</h3>
-              <div className="compact-engagement-object">
-                <Logo compact />
-                <strong>CLIENT ENGAGEMENT</strong>
-                <p>People + work + commercial context + knowledge</p>
+            <article className="aequum-network-panel">
+              <span className="difference-label">AEQUUM</span>
+              <h3>Operate the network around the engagement.</h3>
+              <p>
+                Connect the client requirement to the combination of internal teams, independent specialists,
+                partner firms and AI required to deliver it, while carrying scope, approvals and commercial state.
+              </p>
+              <div className="final-chip-grid network-chips">
+                {aequumNetwork.map((item) => <span key={item}>{item}</span>)}
               </div>
-              <div className="compact-ai-line">
-                <span>AI ASSISTS WITH</span>
-                <div><b>Capability matching</b><b>Scope assistance</b><b>Commercial checks</b><b>Knowledge continuity</b></div>
-                <small>Human review remains part of commercially significant workflows.</small>
-              </div>
+            </article>
+          </div>
+
+          <div className="wedge-statement">
+            <span>THE WEDGE</span>
+            <strong>The engagement is the starting point. The expansion opportunity is the network around it.</strong>
+          </div>
+
+          <div className="intelligence-layer">
+            <div>
+              <span>INTELLIGENCE LAYER</span>
+              <h3>AI is not the moat by itself. Structured engagement context is the foundation.</h3>
             </div>
+            <div className="intelligence-flow" aria-label="Planned Aequum intelligence context">
+              <span>Requirement</span><i>↔</i><span>Capability</span><i>↔</i><span>People + partners</span>
+              <i>↔</i><span>Scope + work</span><i>↔</i><span>Approvals</span><i>↔</i><span>Commercials</span>
+              <i>↔</i><span>Outcome</span>
+            </div>
+            <p>
+              As engagement history compounds, the planned intelligence layer can use this connected context to
+              make better recommendations about assembling, structuring and operating future work.
+            </p>
           </div>
         </div>
       </section>
@@ -237,7 +295,10 @@ export default async function HomePage() {
           <div className="compact-vision-copy">
             <p className="section-kicker">THE BUSINESS VISION</p>
             <h2>The next generation of service companies will assemble capability, not just headcount.</h2>
-            <p>A modern service company can combine permanent employees, independent specialists, partner firms and AI around each client outcome. Aequum is being built to become the operating infrastructure for that model.</p>
+            <p>
+              A modern service company can combine permanent employees, independent specialists, partner firms
+              and AI around each client outcome. Aequum is being built to become the operating infrastructure for that model.
+            </p>
 
             <div className="compact-why-now">
               {whyNow.map(([title, text]) => (
@@ -251,7 +312,10 @@ export default async function HomePage() {
               <div><span>LATER</span><b>Service economy infrastructure</b></div>
             </div>
 
-            <p className="compact-model-note">Planned as subscription software first, with future expansion into advanced intelligence and network capabilities as the core product proves value.</p>
+            <p className="compact-model-note">
+              Planned as subscription software first, with future expansion into advanced intelligence and network
+              capabilities as the core product proves value.
+            </p>
           </div>
 
           <FutureCompanyVisual />
@@ -263,15 +327,27 @@ export default async function HomePage() {
           <div>
             <p className="section-kicker">WHY THIS TEAM</p>
             <h2>Built from operating the problem, not describing it.</h2>
-            <p>Aequum is being shaped from first-hand experience running client-service operations across business development, employees, contractors, scopes, delivery, approvals, invoicing and distributed teams.</p>
-            <p>The repeated pattern was clear: individual tools may work well, but the operating context between them does not.</p>
-            <a href="https://adtractive.co" target="_blank" rel="noopener noreferrer" className="text-link">About AdTractive <span>↗</span></a>
+            <p>
+              The problem behind Aequum was identified through first-hand service operations at AdTractive Internet
+              Pvt. Ltd., across business development, employees, contractors, scopes, delivery, approvals, invoicing
+              and distributed teams.
+            </p>
+            <p>
+              The repeated pattern was clear: individual systems may work well, but the operating context between
+              them remains fragmented. Aequum is being developed as a distinct product around that problem.
+            </p>
+            <a href="https://adtractive.co" target="_blank" rel="noopener noreferrer" className="text-link">
+              Company context <span>↗</span>
+            </a>
           </div>
 
           <aside className="compact-global-card">
             <span>GLOBAL BY DESIGN</span>
             <h3>Built in India. Designed for global service businesses.</h3>
-            <p>The UAE is our planned first international expansion market, followed by broader global expansion as customer validation and partnerships mature.</p>
+            <p>
+              The UAE is our planned first international expansion market, followed by broader global expansion
+              as customer validation and partnerships mature.
+            </p>
             <div><b>INDIA</b><i>→</i><b>UAE</b><i>→</i><b>GLOBAL</b></div>
           </aside>
         </div>
@@ -282,21 +358,33 @@ export default async function HomePage() {
           <div>
             <p className="section-kicker">DESIGN PARTNER PROGRAMME</p>
             <h2>Help shape the operating infrastructure for the next service economy.</h2>
-            <p>We are speaking with agency, consultancy and professional-service operators while the first version of Aequum takes shape. If your team loses time or margin between winning work, assembling people, delivering projects and getting paid, we would like to learn from your workflow.</p>
+            <p>
+              We are speaking with agency, consultancy and professional-service operators while the first version
+              of Aequum takes shape. If your team loses time or margin between winning work, assembling people,
+              delivering projects and getting paid, we would like to learn from your workflow.
+            </p>
             <div className="privacy-points">
               <span><i>✓</i> No account required</span>
               <span><i>✓</i> No sensitive business data requested</span>
               <span><i>✓</i> Opt out of contact at any time</span>
             </div>
           </div>
+
           <EarlyAccessForm />
         </div>
       </section>
 
-      <footer className="site-footer container">
-        <div><Logo /><p>Structure without friction.</p></div>
-        <div className="footer-meta">
-          <span>An AdTractive Internet Pvt. Ltd. venture</span>
+      <footer className="site-footer container final-footer">
+        <div>
+          <Logo />
+          <p>Structure without friction.</p>
+        </div>
+        <div className="footer-meta final-footer-meta">
+          <nav aria-label="Footer navigation">
+            <a href="/privacy">Privacy</a>
+            <a href="#early-access">Contact</a>
+            <a href="https://adtractive.co" target="_blank" rel="noopener noreferrer">Company context</a>
+          </nav>
           <span>© {new Date().getFullYear()} Aequum</span>
         </div>
       </footer>

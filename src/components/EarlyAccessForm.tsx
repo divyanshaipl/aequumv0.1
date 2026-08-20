@@ -95,7 +95,7 @@ export function EarlyAccessForm() {
       </div>
       <label className="consent-row">
         <input name="consent" type="checkbox" required />
-        <span>I agree to be contacted about Aequum early access and product research.</span>
+        <span>I agree to be contacted about Aequum early access and product research. See the <a href="/privacy">Privacy Policy</a>.</span>
       </label>
       <div className="form-action-row">
         <button type="submit" className="button primary" disabled={status === 'submitting'}>
@@ -103,7 +103,7 @@ export function EarlyAccessForm() {
         </button>
         <p className={`form-status ${status}`} role="status" aria-live="polite">{message}</p>
       </div>
-      <p className="form-privacy">No passwords, payment details or sensitive personal data are requested here.</p>
+      <p className="form-privacy">We only request information needed for early-access and product-research conversations.</p>
     </form>
   )
 }

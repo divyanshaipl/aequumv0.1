@@ -30,7 +30,7 @@ export const SiteSettings: GlobalConfig = {
       type: 'textarea',
       maxLength: 460,
       defaultValue:
-        'Aequum is building an AI-assisted engagement operating system for agencies, consultancies and specialist service firms. One place to turn a client opportunity into a staffed, scoped, delivered and commercially connected engagement.',
+        'Aequum is building one operating system for agencies, consultancies and specialist service firms to move client work from opportunity to team, scope, delivery, approvals and billing without rebuilding context across tools.',
     },
     {
       name: 'primaryCTA',

@@ -24,16 +24,34 @@ export const metadata: Metadata = {
     template: '%s | Aequum',
   },
   description:
-    'Aequum is building an AI-assisted engagement operating system for agencies, consultancies and specialist service firms, connecting people, scope, delivery, approvals and commercial context around each client engagement.',
+    'Aequum is building one operating system for agencies, consultancies and specialist service firms to move client work from opportunity to team, scope, delivery, approvals and billing without rebuilding context across tools.',
   applicationName: 'Aequum',
   alternates: { canonical: '/' },
+  icons: {
+    icon: '/favicon.svg',
+  },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'Aequum | Build the team. Run the engagement. Get paid. Learn.',
     description:
-      'Operating infrastructure for service businesses that assemble people, partners and AI around client outcomes.',
+      'Operating infrastructure for service businesses assembling internal teams, specialists, partners and AI around client outcomes.',
     type: 'website',
     siteName: 'Aequum',
+    images: [
+      {
+        url: '/og-aequum.png',
+        width: 1200,
+        height: 630,
+        alt: 'Aequum operating infrastructure for the next service economy',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Aequum | Operating Infrastructure for the Next Service Economy',
+    description:
+      'One operating context for client engagements across people, work and commercial operations.',
+    images: ['/og-aequum.png'],
   },
 }
 

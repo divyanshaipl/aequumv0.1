@@ -47,7 +47,7 @@ export function ProductPreview({ compact = false }: ProductPreviewProps) {
                 <h4>Launch a new consumer brand across paid and owned channels.</h4>
                 <div className="brief-meta">
                   <span><small>Target launch</small><b>6 weeks</b></span>
-                  <span><small>Budget band</small><b>₹8L - ₹12L</b></span>
+                  <span><small>Budget band</small><b>USD 10K to 15K</b></span>
                   <span><small>Client owner</small><b>Maya K.</b></span>
                 </div>
               </div>
